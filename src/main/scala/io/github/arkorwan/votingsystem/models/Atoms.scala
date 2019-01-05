@@ -1,6 +1,6 @@
 package io.github.arkorwan.votingsystem.models
 
-case class Party(id: Int) extends AnyVal
+case class Party(id: Int, name: String = "")
 
 case class District(id: Int) extends AnyVal
 

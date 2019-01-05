@@ -9,7 +9,8 @@ val versions = Map(
   "scalaTest" -> "2.2.0",
   "typesafeConfig" -> "1.3.1",
   "enumeratum" -> "1.5.13",
-  "monocle" -> "1.5.0"
+  "monocle" -> "1.5.0",
+  "kantan.csv" -> "0.5.0"
 )
 
 organization := "io.github.arkorwan"
@@ -23,6 +24,8 @@ libraryDependencies ++= Seq(
   "com.beachape" %% "enumeratum" % versions("enumeratum"),
   "com.github.julien-truffaut" %% "monocle-core" % versions("monocle"),
   "com.github.julien-truffaut" %% "monocle-macro" % versions("monocle"),
+  "com.nrinaudo" %% "kantan.csv" % versions("kantan.csv"),
+  "com.nrinaudo" %% "kantan.csv-generic" % versions("kantan.csv"),
   // testing
   "org.mockito" % "mockito-core" % versions("mockito") % "test",
   "org.scalamock" %% "scalamock-scalatest-support" % versions("scalaMock") % "test",

@@ -4,7 +4,7 @@ import io.github.arkorwan.votingsystem.models._
 
 import scala.annotation.tailrec
 
-class SeatAllocator(listSeats: Seats) {
+class SeatAllocator(val listSeats: Seats) {
 
   def allocate(districtResults: Seq[DistrictResult]): Map[Party, Seats] = {
 
