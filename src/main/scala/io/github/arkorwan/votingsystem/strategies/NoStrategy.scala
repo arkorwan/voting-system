@@ -5,6 +5,8 @@ object NoStrategy extends Strategy {
 
   override val name = "No Strategy"
 
-  override def reallocate(p: Party, allocation: Map[Party, Votes]) = allocation.filterKeys(_ == p)
+  override protected def reallocate(p: Party, allocation: Map[Party, Votes]) = allocation.filterKeys(_ == p)
+
+  override protected def reallocateAll(allocation: Map[Party, Votes]) = allocation
 
 }

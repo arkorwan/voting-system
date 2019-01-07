@@ -16,7 +16,7 @@ class CSVDataSource {
 
     val allCandidates: Seq[CandidateResult] = reads.toSeq.flatMap(_.right.toOption)
 
-    val parties = allCandidates.map(_.party).distinct.zipWithIndex.toMap.map{ case (name, id) =>
+    val parties = allCandidates.map(c => (c.party, c.num)).distinct.toMap.map{ case (name, id) =>
       name -> Party(id, name)
     }
 

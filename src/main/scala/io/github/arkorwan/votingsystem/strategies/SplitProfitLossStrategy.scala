@@ -8,7 +8,7 @@ class SplitProfitLossStrategy(cost: Double) extends Strategy {
 
   override def reallocate(p: Party, allocation: Map[Party, Votes]) = {
 
-    val franchiseParty = Party(1000, p.name + " (B)")
+    val franchiseParty = Party(p.id * 1000, p.name + " (B)")
 
     val votes = allocation(p)
     if(votes.value < cost && allocation.values.forall(_.value <= votes.value)){

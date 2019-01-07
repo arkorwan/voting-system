@@ -8,7 +8,7 @@ class ShiftingWinLoseStrategy(maxParties: Int) extends Strategy {
 
   override def reallocate(p: Party, allocation: Map[Party, Votes]) = {
 
-    val franchiseParties = Stream.from(1).map(i => Party(1000 + i, p.name + s" (${('A' + i).toChar})"))
+    val franchiseParties = Stream.from(1).map(i => Party(p.id * 1000 + i, p.name + s" (${('A' + i).toChar})"))
 
     val votes = allocation(p)
     val maxOther = (allocation - p).values.map(_.value).max
@@ -32,6 +32,11 @@ class ShiftingWinLoseStrategy(maxParties: Int) extends Strategy {
       Map(franchiseParties.head -> votes)
     }
 
+  }
+
+  override def reallocateAll(allocation: Map[Party, Votes]) = {
+    val winningParty = allocation.maxBy(_._2.value)._1
+    (allocation - winningParty) ++ reallocate(winningParty, allocation)
   }
 
 }
